@@ -1,22 +1,19 @@
 public class SmartContract {
-  private Balance balance;
-  private String txAddress;
-  private String rxAddress;
-  
-  public SmartContract(Balance b, String ta, String ra) {
-    balance = b;
-    txAddress = ta;
-    rxAddress = ra;
-  }
+  private boolean cancel;
   
   private boolean check() {
     // where the smart contract is executed prior to payment
     return true;
   }
   
-  public void execute() {
-    while(!check());
+  public boolean execute(Balance balance, String txAddress, String rxAddress) {
+    while(!check()) {
+      if (cancel) {
+        return false;
+      }
+    }
     SendManager.getInstance().send(balance, txAddress, rxAddress);
+    return true;
   }
   
 }
