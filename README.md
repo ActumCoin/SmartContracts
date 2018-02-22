@@ -19,4 +19,4 @@ To execute a smart contract:
 ```java
 sc.execute(balance, txAddress, rxAddress);
 ```
-Pass the `Balance` object containing the amount of and token the contract should send upon execution, and the address sending (`txAddress`) and recieving (`rxAddress`).
+Pass the `Balance` object containing the amount of and token the contract should send upon execution, and the address sending (`txAddress`) and recieving (`rxAddress`). `execute()` will return `true` if it is succesful and `false` if it is cancelled.
