@@ -2,6 +2,8 @@
  * For an exchange on ActumCrypto, use an atomic exchange instead
  */
 
+import util.JSONReader;
+
 public class ExchangeContract extends SmartContract {
   private boolean check() {
     JSONObject json = JSONReader.readJsonFromUrl("https://yourdomain.com/");
