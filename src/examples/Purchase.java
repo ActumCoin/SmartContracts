@@ -10,7 +10,7 @@ public class Purchase {
 	private boolean cancel;
 
 	private boolean check() throws MultichainException {
-		return BalanceManager.getInstance().checkReceived(new Balance("acm", BigDecimal.ZERO), "1UkHQpvVq1NymaCrcQZXJ473ivRh5kVrkPwH24");
+		return BalanceManager.getInstance().checkReceived(new Balance("acm", BigDecimal.ZERO), address);
 	}
 	
 	public boolean execute() throws MultichainException {
