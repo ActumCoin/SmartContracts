@@ -9,12 +9,12 @@ import multichain.command.MultichainException;
 public class Purchase {
 	private boolean cancel;
 
-	private boolean check() throws MultichainException {
-		return BalanceManager.getInstance().checkReceived(new Balance("acm", BigDecimal.ZERO), address);
+	private boolean check(Balance balance, String address) throws MultichainException {
+		return BalanceManager.getInstance().checkReceived(balance, address);
 	}
 	
-	public boolean execute() throws MultichainException {
-		while (!check()) {
+	public boolean execute(Balance balance, String address) throws MultichainException {
+		while (!check(balance, address)) {
 			System.out.println("a");
 			if (cancel) {
 				return false;
